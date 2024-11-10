@@ -9,7 +9,7 @@ public class UserInterfaceProvider {
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_CYAN = "\u001B[36m";
 
-    //Scanner object tha will be initialised in Constructor.
+    //Scanner object that will be initialised in Constructor.
     private final Scanner scanner;
 
     public UserInterfaceProvider() {

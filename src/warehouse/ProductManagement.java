@@ -1,9 +1,7 @@
 package warehouse;
 
 import java.util.List;
-/**
- *
- * */
+
 public class ProductManagement {
     private static final ProductRepository repository;
 
@@ -17,7 +15,9 @@ public class ProductManagement {
         return repository.getInventory();
     }
 
-    //If user enters a value for the shelf and quantity fields, or not.
+    /** This method evaluates if the user entered values for optional fields or not,
+     * then calls the relevant overloaded constructor depending on the evaluation.
+     * */
     public static void addProduct(String name, String manufacturer, String unit, Double quantity, String shelf){
 
         if (shelf == null && quantity == null) {
