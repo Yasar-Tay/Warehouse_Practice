@@ -1,0 +1,74 @@
+This is a simple warehouse management project designed to simulate a product tracking system within a factory environment. Here's a breakdown of the requirements and functionalities without diving into code details:
+
+1. Product Definition (Product Information Storage)
+
+	•	The project starts with defining a product. Each product has the following attributes:
+	•	ID: Unique identifier for each product.
+	•	Product Name: The name of the product.
+	•	Manufacturer: The name of the company that manufactures the product.
+	•	Quantity: The amount of product available in stock.
+	•	Unit: The measurement unit of the product (e.g., sack, box).
+	•	Shelf: The designated storage location within the warehouse.
+	•	This information is stored in a pojoProduct object or a similar data structure, and all product information is organized in a collection for easy access.
+
+2. Functionalities (Warehouse Operations)
+
+	•	Product Definition:
+	•	Used for adding new products. The user will enter the name, manufacturer, and unit.
+	•	The system automatically generates an ID for the product.
+	•	The default values for shelf are set to null and quantity to 0 upon creation.
+	•	List Products:
+	•	Lists all defined products in a formatted way.
+	•	If a product has no quantity or shelf location, these fields display their default values (e.g., quantity = 0, shelf = null).
+	•	Uses formatted output (e.g., printf) to maintain an organized display.
+	•	Product Entry (Stock Increase):
+	•	Allows the user to add stock to a product by entering the product's ID.
+	•	The quantity of the product will increase by the specified amount.
+	•	Place Product on Shelf:
+	•	Lets the user assign a product to a shelf location within the warehouse.
+	•	The user selects a product by its ID and assigns it to a shelf.
+	•	Product Exit (Stock Decrease):
+	•	Allows the user to decrease the stock quantity of a product by selecting it from the list by ID.
+	•	Important Rules:
+	•	The quantity should not drop below zero.
+	•	If the quantity reaches zero, the product definition remains in the system (it's not deleted); only the quantity is set to zero.
+	•	An exception may be triggered if there's an attempt to reduce the quantity below zero.
+
+3. System Consistency and Visibility
+
+	•	Any changes made to product information—whether adding or removing quantity, or assigning a shelf—should be immediately visible in the product list.
+	•	This means that the list will always show the current state of all products, including updates to quantity, shelf location, etc.
+
+4. Example Workflows
+
+	•	Product Definition:
+	•	Define a new product (e.g., Flour by Hekimoglu, unit: sack).
+	•	The system sets the ID automatically and initializes quantity to 0 and shelf to null.
+	•	Product Entry:
+	•	Add stock for a product by ID. For example, add 5 sacks of Flour (ID:1000).
+	•	Place on Shelf:
+	•	Assign the product to a specific shelf. For example, place Flour (ID:1000) on Shelf1.
+	•	Product List View:
+	•	The product list will reflect all updates. If the Flour product has been updated with 5 units and assigned a shelf, it will display as follows:
+* ===> all the changes we make should be visible in the list.
+* * *
+id - name - manufacturer - quantity - unit - shelf
+* ---------------------------- *
+1000 - Flour - hekimoglu -     0  -   sack - null * *
+
+productEntry ==> id:1000 product entry: 5 *
+
+productList ==>
+ id - name -  manufacturer - quantity - unit - shelf *
+1000 - Flour - hekimoglu   -    5    -   sack - null *
+
+* Put the product on the Shelf
+==> id:1000 shelf: Shelf1 Flour)
+
+* productList ==>
+*
+   id - name  - manufacturer  - quantity - unit -  shelf
+* 1000 - flour  -   hekimoglu    -   2   -   sack  -  shelf1
+*
+*
+*/
