@@ -5,19 +5,20 @@ import java.util.List;
 public class ProductManagement {
     private static final ProductRepository repository;
 
-    /** static block to initialize repository */
+    // static block to initialize repository
     static {
         repository = new ProductRepository();
     }
 
-    /** Method to get whole product list from repository which will be used to display all products in Runner class */
+    // Method to get whole product list from repository which will be used to display all products in Runner class
     public static List<Product> getListOfProducts(){
         return repository.getInventory();
     }
 
-    /** This method evaluates if the user entered values for optional fields or not,
+    /*
+       This method evaluates if the user entered values for optional fields or not,
      * then calls the relevant overloaded constructor depending on the evaluation.
-     * */
+     */
     public static void addProduct(String name, String manufacturer, String unit, Double quantity, String shelf){
 
         if (shelf == null && quantity == null) {

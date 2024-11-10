@@ -28,7 +28,7 @@ public class ProductRepository {
         inventory.add(product);
     }
 
-    /**
+    /*
      * This method searches the inventory with the given ID to find the relevant product.
      * If the method finds the product that has been looked for, it returns it.
      * If it can not find it, it throws an exception which is handled in UserInterfaceProvider class.
@@ -50,24 +50,24 @@ public class ProductRepository {
             return product;
     }
 
-    /**
+    /*
      * This method increases the quantity of an existing product.
      * It finds the relevant product by using the first "ID" parameter.
      * It uses findProductById() method to find the product which  throws an exception if it can not find the product.
      * Second parameter of this method is the increase amount which will be added to the quantity amount of the product that was found.
-     * */
+     */
     public void enterQuantity(Long id, Double quantityAdding){
         Product product = findProductById(id);
         product.setQuantity(product.getQuantity() + quantityAdding);
     }
 
 
-    /**
+    /*
      * This method decreases the quantity of an existing product.
      * It finds the relevant product by using the first "ID" parameter.
      * It uses findProductById() method to find the product which throws an exception if it can not find the product.
      * Second parameter of this method is the decrease amount which will be removed from the quantity amount of the product that was found.
-     * */
+     */
     public void exitQuantity(Long id, Double quantityRemoving){
 
         Product product = findProductById(id);
@@ -81,20 +81,20 @@ public class ProductRepository {
     }
 
 
-    /**
+    /*
      * This method allows user to assign the value for 'shelf' property of the product with the given ID
      * It uses findProductById() method to find the product which throws an exception if it can not find the product.
-     * */
+     */
     public void putOnShelf(Long id, String shelf){
         Product product = findProductById(id);
         product.setShelf(shelf);
     }
 
 
-    /**
+    /*
      * This method deletes the product with the given ID from the inventory list.
      * It uses findProductById() method to find the product which throws an exception if it can not find the product.
-     * */
+     */
     public void deleteProduct(Long id){
         Product product = findProductById(id);
         inventory.remove(product);

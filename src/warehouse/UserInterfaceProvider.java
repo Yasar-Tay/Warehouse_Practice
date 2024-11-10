@@ -16,11 +16,11 @@ public class UserInterfaceProvider {
         scanner = new Scanner(System.in);
     }
 
-    /** Main menu of our program.
+    /* Main menu of our program.
      * According to the choice of user, it initiates the relevant private methods.
      * User inputs are sent to Validator class to check if they are valid or not.
      * It keeps rendering until user enters 'q'
-     * */
+     */
     public void welcomeScreen() {
         String userInput = "";
         do {
@@ -79,9 +79,9 @@ public class UserInterfaceProvider {
         } while (!userInput.equalsIgnoreCase("q"));
     }
 
-    /**
+    /*
      * This method receives a product list and displays the products in that list in a pattern.
-     * */
+     */
     private void listProducts(List<Product> productList) {
         //Formatting pattern that will keep the list items and list header in line.
         String listPattern = "%-8s %-10s %-15s %-12s %-10s %-5s\n";
@@ -94,17 +94,17 @@ public class UserInterfaceProvider {
         productList.forEach(t -> System.out.printf(listPattern, t.getId(), t.getName(), t.getManufacturer(), t.getQuantity(), t.getUnit(), t.getShelf()));
     }
 
-    /**
+    /*
      * This method renders the "ADD NEW PRODUCT" menu and prompts user to enter property values of the product that will be created.
      * After validations, it creates the product and adds to the inventory list by calling the relevant method of ProductManagement class.
-     * */
+     */
     private void addProduct() {
         scanner.nextLine(); //dummy nextLine() to consume enter press which was left from the previous menu.
         System.out.println(ANSI_CYAN + "--- ADD NEW PRODUCT ---" + ANSI_RESET);
         System.out.println("Please enter the information of the product you want to add.");
-        String name = "";
-        String manufacturer = "";
-        String unit = "";
+        String name;
+        String manufacturer;
+        String unit;
 
         //Exceptions thrown by Validator methods.
         try {
@@ -124,7 +124,7 @@ public class UserInterfaceProvider {
 
 
         System.out.print("[Optional] Quantity: ");
-        Double quantity = 0.0;
+        Double quantity;
 
         //Exceptions thrown by Validator methods.
         try {
@@ -141,10 +141,10 @@ public class UserInterfaceProvider {
         ProductManagement.addProduct(name, manufacturer, unit, quantity, shelf);
     }
 
-    /**
+    /*
      * This method renders the "ENTER QUANTITY" menu and prompts user to enter ID and quantity amount that will be added.
      * After validations, it updates the quantity property of the product by calling the relevant method of ProductManagement class.
-     * */
+     */
     private void enterQuantity(){
         scanner.nextLine(); //dummy nextLine() to consume enter press which was left from the previous menu.
         System.out.println(ANSI_CYAN + "--- ENTER QUANTITY ---" + ANSI_RESET);
@@ -164,10 +164,10 @@ public class UserInterfaceProvider {
         }
     }
 
-    /**
+    /*
      * This method renders the "EXIT QUANTITY" menu and prompts user to enter ID and quantity amount that will be removed.
      * After validations, it updates the quantity property of the product by calling the relevant method of ProductManagement class.
-     * */
+     */
     private void exitQuantity(){
         scanner.nextLine(); //dummy nextLine() to consume enter press which was left from the previous menu.
         System.out.println(ANSI_CYAN + "--- EXIT QUANTITY ---" + ANSI_RESET);
@@ -187,10 +187,10 @@ public class UserInterfaceProvider {
         }
     }
 
-    /**
+    /*
      * This method renders the "ASSIGN SHELF" menu and prompts user to enter ID of the product and shelf value that will be assigned.
      * After validations, it updates the shelf property of the product by calling the relevant method of ProductManagement class.
-     * */
+     */
     private void assignShelf(){
         scanner.nextLine(); //dummy nextLine() to consume enter press which was left from the previous menu.
         System.out.println(ANSI_CYAN + "--- ASSIGN SHELF ---" + ANSI_RESET);
@@ -210,10 +210,10 @@ public class UserInterfaceProvider {
         }
     }
 
-    /**
+    /*
      * This method renders the "DELETE PRODUCT" menu and prompts user to enter ID of the product that will be removed from the inventory list.
      * After validation, it removes the product by calling the relevant method of ProductManagement class.
-     * */
+     */
     private void deleteProduct(){
         scanner.nextLine(); //dummy nextLine() to consume enter press which was left from the previous menu.
         System.out.println(ANSI_CYAN + "--- DELETE PRODUCT ---" + ANSI_RESET);
